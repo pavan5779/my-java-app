@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+    commands:
+      - echo Installing Maven
+      - apt-get install -y maven
+  build:
+    commands:
+      - echo Building the Java app
+      - mvn clean package
+  post_build:
+    commands:
+      - echo Build completed. Uploading artifacts to S3.
+artifacts:
+  files:
+    - target/*.jar
+  discard-paths: yes
+  base-directory: target

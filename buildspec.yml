@@ -3,21 +3,21 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: openjdk11  # Installing OpenJDK 11
+      java: corretto11
     commands:
       - echo "Installing Maven..."
       - apt-get update
-      - apt-get install -y maven  # Installing Maven
+      - apt-get install -y maven 
   build:
     commands:
       - echo "Building the Java app..."
-      - mvn clean package  # Building the application using Maven
+      - mvn clean package 
   post_build:
     commands:
       - echo "Build completed. Uploading artifacts to S3..."
 
 artifacts:
   files:
-    - target/*.jar  # Specify the location of your .jar file after the build
-  discard-paths: yes  # Only keep the artifact file without directory structure
-  base-directory: target  # Define the base directory where the artifact is stored
+    - target/*.jar  
+  discard-paths: yes  
+  base-directory: target  

@@ -14,8 +14,8 @@ pipeline {
     stage('Deploy') {
       steps {
         // Path to the PEM file and the deployment command
-        sh 'scp -i "/var/lib/jenkins/workspace/Task-1/pradeep.pem" target/my-java-app.jar ubuntu@ec2-34-221-200-59.us-west-2.compute.amazonaws.com:/path/to/deploy/'  // SCP command to copy the JAR file
-        sh 'ssh -i "/var/lib/jenkins/workspace/Task-1/pradeep.pem" ubuntu@ec2-34-221-200-59.us-west-2.compute.amazonaws.com "java -jar /path/to/deploy/my-java-app.jar &"'  // SSH command to run the JAR file
+        sh 'scp -i "/var/lib/jenkins/workspace/Task-1/pradeep.pem" target/my-java-app.jar ubuntu@ec2-34-216-141-239.us-west-2.compute.amazonaws.com:/home/ubuntu'  // SCP command to copy the JAR file
+        sh 'ssh -i "/var/lib/jenkins/workspace/Task-1/pradeep.pem" ubuntu@ec2-34-216-141-239.us-west-2.compute.amazonaws.com "java -jar /home/ubuntu/my-java-app.jar &"'  // SSH command to run the JAR file
       }
     }
   }
